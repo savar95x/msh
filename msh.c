@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/types.h>
 #include <sys/wait.h>
 
 #define PROMPT "> "
@@ -59,7 +57,7 @@ char **parse_line(char *line) {
 		fprintf(stderr, "msh: allocation error\n");
 		exit(EXIT_FAILURE);
 	}
-	
+
 	token = strtok(line, TOK_DELIM);
 	while (token != NULL) {
 		tokens[i++] = token;
@@ -126,12 +124,6 @@ void main_loop() {
 }
 
 int main() {
-	// Load config files, if any.
-
-	// command line loop.
 	main_loop();
-
-	// Perform any shutdown/cleanup.
-
 	return EXIT_SUCCESS;
 }
